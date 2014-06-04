@@ -1,0 +1,25 @@
+<h1>Flights</h1>
+
+<%= form_tag flights_path, method: 'get' do %>
+<div class="row">
+  <%= hidden_field_tag :search %>
+  <div class="large-2 columns">From <%= select_tag :from, options_for_select(@airports) %></div>
+  <div class="large-2 columns">To <%= select_tag :to, options_for_select(@airports) %></div>
+  <div class="large-3 columns">Date <%= select_tag :date, options_for_select(@dates) %></div>
+   <div class="large-2 columns">Passengers<%= select_tag :passengers, options_for_select(1..4) %></div>
+   <div class="large-3 columns"><%= submit_tag "Search", :name => nil, class: "button" %></div>
+</div>
+<% end %>
+
+
+<p>What the fuck is going on?</p>
+
+
+<% @flights.each do |flight| %>
+
+  <p><%= flight.from_airport.code %> to <%= flight.to_airport.code %> on <%= flight.date_formatted %> </p>
+
+<% end %>
+
+
+<p>I'm so confused........</p>
