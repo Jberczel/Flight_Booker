@@ -3,6 +3,8 @@ FlightBooker::Application.routes.draw do
   
   get "flights" => 'flights#index'
 
+  resources :bookings, only: [:new, :create, :show]
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

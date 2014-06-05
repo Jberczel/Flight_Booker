@@ -1,0 +1,15 @@
+<h1>Booking Page</h1>
+
+<p>Hello, you have selected <b>Flight #<%= @flight.id %></b>, which departs from <%= @flight.from_airport.code %> and arrives in <%= @flight.to_airport.code %>, for exepcted flight time of <%= @flight.duration %> seconds. </p>
+
+<p>Please enter Passenger information below:</p>
+
+<%= form_for(@booking) do |f| %>
+  <%= f.hidden_field :flight_id %>
+      <%= f.fields_for :passengers do |passenger| %>
+        <%= passenger.text_field :name %>
+        <%= passenger.text_field :email %>
+      <% end %>
+  <%= f.submit "Book", class: "button" %>
+
+<% end %>

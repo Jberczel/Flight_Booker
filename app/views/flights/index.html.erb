@@ -12,14 +12,17 @@
 <% end %>
 
 
-<p>What the fuck is going on?</p>
 
+<%= form_tag new_booking_path, method: 'get' do %>
+<div class="row">
+    <% @flights.each do |flight| %>
+      <%= radio_button_tag :flight_id, flight.id %>
+      <%= "Flight ##{flight.id}" %>
+      <br>
+     
+    <% end %>
+    <%= submit_tag "Select Flight", :name => nil, class: "button" %>
+    <%= hidden_field_tag :passengers, params[:passengers] %>
 
-<% @flights.each do |flight| %>
-
-  <p><%= flight.from_airport.code %> to <%= flight.to_airport.code %> on <%= flight.date_formatted %> </p>
-
+</div>
 <% end %>
-
-
-<p>I'm so confused........</p>
