@@ -1,19 +1,19 @@
 <h1>Booking Confirmation</h1>
 
-<p>Congratulations.</p>
+<p>
+  Thank you for booking your flight with flight-booker.  
+  Your confirmation # is <b><%= @booking.id %></b> .
+</p>
 
-Date: <%= @booking.flight.date_formatted %>
-
-From: <%= @booking.flight.from_airport.code %>
-
-To: <%= @booking.flight.to_airport.code %>
-
-Duration: <%= distance_of_time_in_words(@booking.flight.duration.seconds) %>
+<p>
+  Flight #<%= @booking.flight.id %>: <%= @booking.flight.from_airport.code %> -> 
+  <%= @booking.flight.to_airport.code %> on 
+  <%= @booking.flight.date.strftime("%A, %B %d, %Y") %>.
+</p>
 
 <p>Passengers:</p>
-
+<ol>
 <% @booking.passengers.each do |passenger| %>
-
-  <%= "#{passenger.name} <#{passenger.email}>" %><br>
-
-  <% end %>
+ <li> <%="#{passenger.name} <#{passenger.email}>" %></li>
+<% end %>
+</ol>

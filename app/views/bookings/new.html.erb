@@ -1,15 +1,33 @@
 <h1>Booking Page</h1>
 
-<p>Hello, you have selected <b>Flight #<%= @flight.id %></b>, which departs from <%= @flight.from_airport.code %> and arrives in <%= @flight.to_airport.code %>, for exepcted flight time of <%= @flight.duration %> seconds. </p>
+<fieldset>
+  <legend>Trip Details</legend>
+  <h3>Flight #<%= @flight.id %></h3>
+  <h3>
+  <%= @flight.from_airport.code %> -> <%= @flight.to_airport.code %>
+  <small><%=@flight.from_airport.city%> to <%=@flight.to_airport.city%></small>
+  </h3>
+  <p><%= @flight.date.strftime("%A, %B %d, %Y") %></p>
+</fieldset>
 
-<p>Please enter Passenger information below:</p>
-
-<%= form_for(@booking) do |f| %>
-  <%= f.hidden_field :flight_id %>
-      <%= f.fields_for :passengers do |passenger| %>
-        <%= passenger.text_field :name %>
-        <%= passenger.text_field :email %>
-      <% end %>
-  <%= f.submit "Book", class: "button" %>
-
-<% end %>
+<div class="row">
+  <div class="large-6 columns">
+    <%= form_for(@booking) do |f| %>
+      <%= f.hidden_field :flight_id %>         
+      <fieldset>
+        <legend>Passengers Information</legend>
+        <%= f.fields_for :passengers do |passenger| %>
+        <div class="row">
+           <div class="large-6 columns">
+            <%= passenger.text_field :name %>
+           </div>
+           <div class="large-6 columns">
+          <%= passenger.text_field :email %>
+          </div>    
+        </div>    
+        <% end %>
+      </fieldset>
+      <%= f.submit "Book Flight", class: "button" %>
+    <% end %>
+  </div>
+</div>

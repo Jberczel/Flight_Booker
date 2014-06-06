@@ -1,0 +1,24 @@
+<%= form_tag flights_path, method: 'get' do %>
+<div class="row">
+  <%= hidden_field_tag :search %>
+  <div class="large-2 columns">
+    <%= select_tag :from, options_for_select(@airports),  prompt: "From" %>
+  </div>
+
+  <div class="large-2 columns">
+    <%= select_tag :to, options_for_select(@airports), prompt: "To" %>
+  </div>
+
+  <div class="large-2 columns">
+      <%= select_tag :date, options_for_select(@dates), prompt: "Date" %>
+  </div>
+
+  <div class="large-2 columns">
+    <%= select_tag :passengers, options_for_select(@passengers), prompt: "passengers" %>
+  </div>
+   
+  <div class="large-4 columns">
+    <%= submit_tag "Search", :name => nil, class: "button" %>
+  </div>
+</div>
+<% end %>

@@ -1,2 +1,3 @@
 module FlightsHelper
+
 end
