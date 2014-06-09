@@ -3,7 +3,9 @@ class BookingsController < ApplicationController
   def new
     @flight = Flight.find(params[:flight_id])
     @booking = @flight.bookings.build
+
     params[:passengers].to_i.times { @booking.passengers.build }
+    @booking.passengers.build if params[:passengers].blank? #one passenger by default (user forgot to select)
   end
 
   def create
