@@ -10,4 +10,4 @@ Project focus: building advanced forms with search and nested attributes.
 
 Build a flight booker, where user selects flight based on date, departure and arrival airports, and # of passengers.  User enters passenger detail on booking page and receives confirmation.
 
-View: Demo
+View: [Demo](http://flight-booker.herokuapp.com)
