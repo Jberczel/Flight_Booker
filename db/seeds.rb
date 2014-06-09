@@ -24,14 +24,16 @@ Flight.delete_all
 
 Airport.all.each do |airport1|
   Airport.all.each do |airport2|
-    dur = duration["#{airport1.code}_#{airport2.code}"]
-    Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: Time.now, duration: dur)
-    Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: 3.hours.from_now, duration: dur)
-    Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: 6.hours.from_now, duration: dur)
-    Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: 1.day.from_now, duration: dur)
-    Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: (1.day + 6.hours).from_now, duration: dur)
-    Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: 2.days.from_now, duration: dur)
-    Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: (2.days + 3.hours).from_now, duration: dur)
+    unless airport1 == airport2
+      dur = duration["#{airport1.code}_#{airport2.code}"]
+      Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: Time.now, duration: dur)
+      Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: 3.hours.from_now, duration: dur)
+      Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: 6.hours.from_now, duration: dur)
+      Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: 1.day.from_now, duration: dur)
+      Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: (1.day + 6.hours).from_now, duration: dur)
+      Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: 2.days.from_now, duration: dur)
+      Flight.create(from_airport_id: airport1.id, to_airport_id: airport2.id, date: (2.days + 3.hours).from_now, duration: dur)
+    end
   end
 end
 
