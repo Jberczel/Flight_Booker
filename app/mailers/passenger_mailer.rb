@@ -1,5 +1,5 @@
 class PassengerMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "jxberc@gmail.com"
 
 
   def thank_you_email(passenger)

@@ -5,13 +5,13 @@
   </head>
   <body>
     <h1><%= @passenger.name %>, Thank you for booking with FlightBooker!</h1>
-    
-    <p>Please see your itinerary below.</p>
 
     <p>
       Thank you for booking your flight with flight-booker.  
       Your confirmation # is <b><%= @booking.id %></b>.
     </p>
+
+    <p>Please see your itinerary below.</p>
 
     <p>
       Flight #<%= @booking.flight.id %>: <%= @booking.flight.from_airport.code %> -> 
@@ -26,7 +26,7 @@
     <% end %>
     </ol>
  
-    <p>Thanks for booking with <%= link_to "FlightBooker", @url %>. Have a great day!</p>
+    <p>Thank you again for booking with <%= link_to "FlightBooker", @url %>. Have a great day!</p>
 
   </body>
 </html>
