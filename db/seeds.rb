@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Passenger.delete_all
-
+Booking.delete_all
 
 Airport.delete_all   
 lax = Airport.create(code: "LAX", city: "Los Angeles")

@@ -40,6 +40,10 @@ gem 'rails_12factor'
 
 gem 'newrelic_rpm'
 
+gem "letter_opener", :group => :development
+
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

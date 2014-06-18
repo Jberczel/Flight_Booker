@@ -1,0 +1,11 @@
+<%= @passenger.name %>, Thank you for booking with Flight Booker.
+===============================================
+
+Please see your itinerary below.
+
+Booking #:<%= @booking.id %>
+Flight #:<%= @booking.flight_id %>
+From: <%= @booking.flight.from_airport.code %>
+To: <%= @booking.flight.to_airport.code %>
+
+Thanks again for booking with FlightBooker and have a great day!
